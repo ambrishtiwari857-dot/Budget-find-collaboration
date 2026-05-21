@@ -1,0 +1,138 @@
+import { useState } from "react"
+
+export default function BudgetFindCollaborationForm() { const [submitted, setSubmitted] = useState(false)
+
+const handleSubmit = (e) => { e.preventDefault() setSubmitted(true) }
+
+return ( <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-zinc-800 flex items-center justify-center p-6"> <div className="w-full max-w-4xl grid md:grid-cols-2 overflow-hidden rounded-3xl shadow-2xl border border-zinc-700 bg-zinc-900/90 backdrop-blur-lg"> {/* Left Side */} <div className="p-10 bg-gradient-to-b from-indigo-600 to-purple-700 text-white flex flex-col justify-center"> <h1 className="text-4xl font-bold leading-tight"> Budget Find <br /> Collaboration </h1>
+
+<p className="mt-5 text-zinc-200 text-base leading-relaxed">
+        Connect with premium creators, brands, and influencers. Fill out the collaboration form and start growing your network professionally.
+      </p>
+
+      <div className="mt-8 space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-green-400"></div>
+          <p>Trusted Collaboration Platform</p>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-pink-400"></div>
+          <p>Secure Premium Application</p>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <p>Fast Approval Process</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Side */}
+    <div className="p-10 bg-zinc-950 text-white">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold">Apply Now</h2>
+        <p className="text-zinc-400 mt-2">
+          Submit your collaboration request.
+        </p>
+      </div>
+
+      {submitted ? (
+        <div className="text-center py-16">
+          <div className="text-6xl mb-5">🎉</div>
+          <h2 className="text-4xl font-bold text-green-400">
+            Congratulations!
+          </h2>
+          <p className="text-zinc-300 mt-4 text-lg leading-relaxed">
+            Your collaboration application has been submitted successfully.
+          </p>
+
+          <button
+            onClick={() => setSubmitted(false)}
+            className="mt-8 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-105 transition-all duration-300 font-semibold"
+          >
+            Apply Again
+          </button>
+        </div>
+      ) : (
+      <form className="space-y-5" onSubmit={handleSubmit}>
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Full Name
+          </label>
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Email Address
+          </label>
+          <input
+            type="email"
+            placeholder="example@email.com"
+            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            placeholder="Enter your phone number"
+            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Collaboration Type
+          </label>
+          <select className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option>Brand Promotion</option>
+            <option>Influencer Collaboration</option>
+            <option>Social Media Campaign</option>
+            <option>Business Partnership</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Budget Range
+          </label>
+          <input
+            type="text"
+            placeholder="$100 - $5000"
+            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm text-zinc-300">
+            Message
+          </label>
+          <textarea
+            rows="4"
+            placeholder="Tell us about your collaboration project..."
+            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-[1.02] transition-all duration-300 font-semibold shadow-lg"
+        >
+          Submit Application
+        </button>
+      </form>
+      )
+    </div>
+  </div>
+</div>
+
+) }
